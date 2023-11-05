@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Favorite.module.css";
 
-export const Favorite = ({ movie }) => {
+export const Favorite = ({ data }) => {
   let [visible, setVisible] = useState(false);
-  let makeVisible = (title) => {
+  
+  let makeVisible = () => {
     setVisible(!visible);
     if (!visible) {
-      alert(title + " added to favorites.");
+      alert("Added to favorites.");
     }
   };
   return (
     <>
       <button
-        onClick={() => makeVisible(movie.Title)}
+        onClick={() => makeVisible(data.Title)}
         title="Favorite"
         className={`btn ${styles.button} ${visible ? styles.favorite : ""}`}
       >

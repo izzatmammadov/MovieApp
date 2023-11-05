@@ -1,12 +1,13 @@
-import React from "react";
-import movies from "./data/movies.json";
+import React, {useState} from "react";
 import { Card } from "./components/Card/Card";
-console.log(movies);
+import { Navbar } from "./components/Navbar/Navbar";
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
   return (
-    <div className="bg-dark py-3">
-      <Card movieData={movies} />
+    <div className="bg-dark">
+      <Navbar setSearchQuery={setSearchQuery} />
+      <Card searchQuery={searchQuery}/>
     </div>
   );
 }
